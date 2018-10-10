@@ -31,7 +31,7 @@ private def checkWinningGuess(info:guesses):Int =  info match {
       s"The $winner has won the Ai guessed $aiGuesses"
   }
 
-  def recordPlayerMove(guess:String):Unit={
+  /*def recordPlayerMove(guess:String):Unit={
     var rockCount =0
     var scissorsCount =0
     var paperCount =0
@@ -41,5 +41,5 @@ private def checkWinningGuess(info:guesses):Int =  info match {
       scissorsCount+=1
     else
      paperCount+=1
-  }
+  }*/
 }
