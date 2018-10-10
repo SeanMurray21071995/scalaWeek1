@@ -1,9 +1,9 @@
 object HelloWorld extends App {
 
-  println("Hello World")
+  //println("Hello World")
 
   val h = "hello world"
-  println(h)
+  //println(h)
 
   def output(s: String): Unit = {
     println(s)
@@ -13,17 +13,17 @@ object HelloWorld extends App {
     "Hello World!"
   }
 
-  output(h)
-  output(outputString())
+  //output(h)
+  //output(outputString())
 
   def outputAny(o: Any): Unit = {
     println(o.getClass.getSimpleName)
   }
 
-  outputAny("String")
-  outputAny(true)
-  outputAny(213)
-  outputAny(42.24)
+  //outputAny("String")
+  //outputAny(true)
+  //outputAny(213)
+  //outputAny(42.24)
 
   def stringIntOutput(i: Int, s: String): String = {
     val c = s.charAt(s.length - (i + 1))
@@ -31,18 +31,18 @@ object HelloWorld extends App {
     arr(arr.length - 1)
   }
 
-  println(stringIntOutput(5, "MagicRoundAbout"))
+  //println(stringIntOutput(5, "MagicRoundAbout"))
 
   def stringReplaceOutput(sFirst: String, sSecond: String, cOld: Char, cNew: Char): String = {
     val temp = sFirst.concat(sSecond)
     temp.replace(cOld, cNew)
   }
-  println(stringReplaceOutput("Hello", "World", 'l', 'q'))
+  //println(stringReplaceOutput("Hello", "World", 'l', 'q'))
 
   def multiply(int1: Int, int2: Int):Int={
     int1 + int2
   }
-  println(multiply(1,2))
+  //println(multiply(1,2))
 
   def multiplyBoolean(int1: Int, int2: Int, bool: Boolean):Int={
     if (bool==true)
@@ -51,8 +51,8 @@ object HelloWorld extends App {
       int1*int2
   }
 
-  println(multiplyBoolean(5,10,false))
-  println(multiplyBoolean(5,10,true))
+  //println(multiplyBoolean(5,10,false))
+  //println(multiplyBoolean(5,10,true))
 
   def conditionsTwo(int1: Int, int2: Int, bool: Boolean):Int={
     if(int1==0)
@@ -67,13 +67,13 @@ object HelloWorld extends App {
     }
   }
 
-  println(conditionsTwo(5,0,false))
+  //println(conditionsTwo(5,0,false))
 
   def Iteration(s:String, i:Int):Unit={
     for(y<-1 to i)
       println(s)
   }
-  Iteration("HelloWorld!!", 3)
+  //Iteration("HelloWorld!!", 3)
 
  /* def Iteration2(s:String, i:Int):Unit={
     for(y<-1 to i){
@@ -91,7 +91,7 @@ object HelloWorld extends App {
       }
     }
   }
-  Iteration2("H", 6)
+  //Iteration2("H", 6)
 
   def FizzBuzz(string1:String, string2:String, i:Int):Unit={
       for(j<-1 to i){
@@ -111,7 +111,7 @@ object HelloWorld extends App {
       }
   }
 
-  FizzBuzz("FIZZ","BUZZ", 20)
+  //FizzBuzz("FIZZ","BUZZ", 20)
 
   def recursion(s:String, i:Int):Unit={
     if(i==1){
@@ -122,11 +122,87 @@ object HelloWorld extends App {
       println(s)
     }
   }
-  recursion("HelloWorld!!", 3)
+  //recursion("HelloWorld!!", 3)
+
+  def recursion2(s: String, i: Int, count:Int):Unit={
+    if(i%count==0)
+      {
+        println(s*i)
+      }
+    if(count==1)
+      {
+        print(s)
+      }
+    else
+      {
+        recursion2(s,i,count-1)
+        print(s)
+      }
+    }
+//  recursion2("J",6,6)
+
+  def recursaion3(string1:String, string2:String, i:Int):Unit={
+    if(i==1){
+      println(i)
+    }
+    else
+      {
+        if (i%3==0){
+          if(i%5==0){
+            recursaion3(string1,string2,i-1)
+            println(string1+string2)
+          }else {
+            recursaion3(string1,string2,i-1)
+            println(string1)
+          }
+        }
+        else if (i%5==0){
+          recursaion3(string1,string2,i-1)
+          println(string2)
+        }
+        else{
+          recursaion3(string1,string2,i-1)
+          println(i)
+        }
+      }
+  }
+
+//  recursaion3("Fizz","Buzz", 16)
+  def patternMatching(int1:Int, int2:Int, bool:Boolean):Unit = bool match{
+    case true => println(int1+int2)
+    case false => println(int1*int2)
+  }
+ // patternMatching(2,4,false)
+
+  case class intake(int: Int, int2: Int, bool: Boolean)
+  def patternMatching2(info: Any):Unit = info match{
+    case intake(0,int2, bool)=> println(int2)
+    case intake(int1, 0,bool) => println(int1)
+    case intake(int1, int2, true)=> println(int1+int2)
+    case intake(int1, int2, false)=>println(int1*int2)
+  }
+ // patternMatching2(intake(2,4,false))
+ // patternMatching2(intake(2,4,true))
+
+  def patternMatching3(info: Any):Any= info match{
+
+    case list: List[Any] => list
+    case arr: Array[Any] => arr
+    case _ => info.getClass
+  }
+
+  val list = List("there","hi")
+  val arr = Array("world","Hello")
+  println(patternMatching3(list))
+  println(patternMatching3(arr))
+  println(patternMatching3(2,3))
+
+
 
 
 
 
 
 }
+
 
