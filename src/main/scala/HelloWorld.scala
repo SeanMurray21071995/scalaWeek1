@@ -185,22 +185,26 @@ object HelloWorld extends App {
  // patternMatching2(intake(2,4,true))
 
   def patternMatching3(info: Any):Any= info match{
-
-    case list: List[Any] => list
-    case arr: Array[Any] => arr
-    case _ => info.getClass
+    case info: List[Any] => println(info.tail.head, info.head)
+    case info: Array[Any] => Array((info(1),info(0)))foreach(println)
+    case info: Tuple2[Any,Any] => println(info._2, info._1)
+    case _=>println("Invalid Input has been entered")
   }
-
   val list = List("there","hi")
   val arr = Array("world","Hello")
-  println(patternMatching3(list))
-  println(patternMatching3(arr))
-  println(patternMatching3(2,3))
+  //patternMatching3(list)
+  //patternMatching3(arr)
+  //patternMatching3(2,3)
+  //patternMatching3(4,5,6)
 
 
-
-
-
+  java.util.TimeZone.getAvailableIDs.map(data => data.split("/"))  // replaces the value with a new value that meets the condition in this case replces a string with an array "
+    .filter(data => data.length==2) // reads in the arrays and gets rid of the arrays that only contain one element
+    .flatMap(_.toList) // converst the array into a list
+    .distinct // gets rid of any duplicates
+    .grouped(10) // Iterator that puts the elements into groups of 10
+    .toList(0) // puts each of the first items in the groups into a list
+    .foreach(println) // prints out all of the elements in teh list
 
 
 }
