@@ -14,20 +14,29 @@ object GameAi {
         makeLogicicalGuess(0)
       }
       else {
-        hitCounter += 1
         rockCounter = 0
         makeLogicicalGuess(1)
       }
     }
     else if(paperCounter==2) {
-      hitCounter+=1
-      paperCounter=0
-      makeLogicicalGuess(0)
+      if(hitCounter==makeRandomGuess()){
+        paperCounter=0
+        makeLogicicalGuess(2)
+      }
+      else {
+        paperCounter = 0
+        makeLogicicalGuess(0)
+      }
     }
     else if (scissorCounter==2) {
-      hitCounter+=1
-      scissorCounter=0
-      makeLogicicalGuess(2)
+      if(hitCounter==makeRandomGuess()){
+        scissorCounter=0
+        makeLogicicalGuess(1)
+      }
+      else{
+        scissorCounter=0
+        makeLogicicalGuess(2)
+      }
     }
     else {
       firstGuess()
@@ -37,9 +46,6 @@ object GameAi {
     case "Paper" => paperCounter+=1
     case "Rock" => rockCounter+=1
     case "Scissors" => scissorCounter+=1
-  }
-  private def htiCouterLogic():Unit={
-
   }
   private def makeRandomGuess():Int={
     val aiGuess = scala.util.Random
