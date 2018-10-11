@@ -2,36 +2,44 @@ object GameAi {
   var rockCounter = 0
   var paperCounter = 0
   var scissorCounter = 0
-  val rock = "Rock"
-  val paper = "Paper"
-  val scissors = "Scissors"
+  var hitCounter = 0
 
   def firstGuess():String = {
     aiGuessValueConvert(makeRandomGuess())
   }
   def guess():String ={
-    if (rockCounter==3){
-      rockCounter=0;
-      makeLogicicalGuess(1)
+    if (rockCounter==2){
+      if(hitCounter==makeRandomGuess()){
+        rockCounter = 0
+        makeLogicicalGuess(0)
+      }
+      else {
+        hitCounter += 1
+        rockCounter = 0
+        makeLogicicalGuess(1)
+      }
     }
-    else if(paperCounter==3) {
-      paperCounter=0;
+    else if(paperCounter==2) {
+      hitCounter+=1
+      paperCounter=0
       makeLogicicalGuess(0)
     }
-    else if (scissorCounter==3)
-    {
-      scissorCounter=0;
+    else if (scissorCounter==2) {
+      hitCounter+=1
+      scissorCounter=0
       makeLogicicalGuess(2)
     }
-    else
-    {
+    else {
       firstGuess()
     }
   }
   def incrementCounters(increment:String):Unit = increment match{
-    case rock => paperCounter+=1
-    case paper => rockCounter+=1
-    case scissors => scissorCounter+=1
+    case "Paper" => paperCounter+=1
+    case "Rock" => rockCounter+=1
+    case "Scissors" => scissorCounter+=1
+  }
+  private def htiCouterLogic():Unit={
+
   }
   private def makeRandomGuess():Int={
     val aiGuess = scala.util.Random
@@ -43,8 +51,8 @@ object GameAi {
     case 2 => aiGuessValueConvert(1)
   }
   private def aiGuessValueConvert(guess:Int):String= guess match{
-    case 0 => paper
-    case 1 => rock
-    case 2 => scissors
+    case 0 => "Paper"
+    case 1 => "Rock"
+    case 2 => "Scissors"
   }
 }
