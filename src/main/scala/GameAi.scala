@@ -48,8 +48,7 @@ object GameAi {
     case "Scissors" => scissorCounter+=1
   }
   private def makeRandomGuess():Int={
-    val aiGuess = scala.util.Random
-    aiGuess.nextInt(3)
+    scala.util.Random.nextInt(3)
   }
   private def makeLogicicalGuess(mostCommon:Int):String = mostCommon match {
     case 0 => aiGuessValueConvert(2)
