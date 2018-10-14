@@ -13,7 +13,7 @@ object RockPaperScissors extends App {
         i += 1
       }
       else {
-        println(GameLogic.checkWinner(input, GameAi.guess()))
+        println(GameLogic.checkWinner(input, GameAi.guess(input)))
       }
       GameAi.incrementCounters(input)
     }
