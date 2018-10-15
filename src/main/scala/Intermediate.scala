@@ -21,10 +21,11 @@ object Intermediate extends App {
   //println(blackJack(12,10))
 
 
-  def uniquesSum(num1: Int, num2: Int, num3: Int): Int = {
-    var arr = ArrayBuffer(num1, num2, num3)
-    var dis = arr.distinct
-    var check = arr diff dis
+
+  def uniquesSum(num1:Int, num2:Int, num3:Int):Int={
+    val arr = ArrayBuffer(num1,num2,num3)
+    val dis = arr.distinct
+    val check = arr diff dis
     var total = 0
     if (check.length != 0) {
       for (a <- arr; b <- check) {
@@ -44,7 +45,7 @@ object Intermediate extends App {
   def totalHot(temp: Int, isSummer: Boolean): Boolean = {
     var uperLimit = 90
     var lowerLimit = 60
-    if (isSummer == true) {
+    if (isSummer) {
       uperLimit = 100
       lowerLimit = 90
     }
