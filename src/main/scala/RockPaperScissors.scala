@@ -8,7 +8,6 @@ object RockPaperScissors extends App {
     }
     else {
       if (i == 0) {
-        val aiFirstGuess = GameAi.firstGuess()
         println(GameLogic.checkWinner(input, GameAi.firstGuess()))
         i += 1
       }
