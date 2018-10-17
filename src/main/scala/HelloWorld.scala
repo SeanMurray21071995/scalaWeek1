@@ -205,8 +205,4 @@ object HelloWorld extends App {
     .grouped(10) // Iterator that puts the elements into groups of 10
     .toList(0) // puts each of the first items in the groups into a list
     .foreach(println) // prints out all of the elements in teh list
-
-
 }
-
-

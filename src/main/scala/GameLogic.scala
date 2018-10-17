@@ -21,7 +21,6 @@ private def checkWinningGuess(info:guesses):Int =  info match {
    case guesses("Scissors", "Paper") => 0
    case guesses("Paper","Scissors") => 1
  }
-
   def finalMessage(winner:String, aiGuesses: String): String = {
     if(winner=="DRAW")
       s"It is a DRAW since the Ai also picked $aiGuesses \n"

@@ -6,7 +6,7 @@ object Intermediate extends App {
     if (entry > 21 & entry2 > 21) {
       0
     }
-    if (21 - entry > 21 - entry2) {
+    else if (21 - entry > 21 - entry2) {
 
       entry2
     }
@@ -40,7 +40,7 @@ object Intermediate extends App {
     total
   }
 
-  println(uniquesSum(12, 3, 8))
+  //println(uniquesSum(12, 3, 8))
 
   def totalHot(temp: Int, isSummer: Boolean): Boolean = {
     var uperLimit = 90
@@ -57,5 +57,5 @@ object Intermediate extends App {
     }
   }
 
-  println(totalHot(123, true))
+ // println(totalHot(123, true))
 }
